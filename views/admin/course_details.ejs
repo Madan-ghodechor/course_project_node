@@ -1,0 +1,75 @@
+<%- include("header.ejs") %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="alert alert-primary"> <b><%=da[0].course_name%></b></h3>
+        </div>
+        <div class="col-md-6">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 mt-2 border-bottom">
+                        <p>Course Name</p>
+                        <b style="line-height: 10%;" class="d-block mb-3 ps-4"><%= da[0].course_name %> </b>
+                    </div>
+                    <div class="col-md-12 mt-2 border-bottom">
+                        <p>Category</p>
+                        <b style="line-height: 10%;" class="d-block mb-3 ps-4"><%= da[0].cat_name %> </b>
+                    </div>
+                    <div class="col-md-12 mt-2 border-bottom">
+                        <p>Duration</p>
+                        <b style="line-height: 10%;" class="d-block mb-3 ps-4"><%= da[0].course_duration %> </b>
+                    </div>
+                    <div class="col-md-12 mt-2 border-bottom">
+                        <p>Price</p>
+                        <b style="line-height: 10%;" class="d-block mb-3 ps-4"> &#8377; <%= da[0].course_price %> /-</b>
+                    </div>
+                    <div class="col-md-12 mt-2 border-bottom">
+                        <p>Mentor</p>
+                        <b style="line-height: 10%;" class="d-block mb-3 ps-4"><%= da[0].course_mentor %> </b>
+                    </div>
+                    <div class="col-md-12 mt-2 border-bottom">
+                        <p>Link</p>
+                        <b style="line-height: 10%;" class="d-block mb-3 ps-4"><%= da[0].course_link!='' ? da[0].course_link :'N/A' %> </b>
+                    </div>
+                    <div class="col-md-12 mt-2 border-bottom">
+                        <p>Platform</p>
+                        <b style="line-height: 10%;" class="d-block mb-3 ps-4"><%= da[0].course_platform %> </b>
+                    </div>
+                    <div class="col-md-12 mt-2 border-bottom">
+                        <p>Image</p>
+                        <a href="" onclick="open_file('/uploads/<%=da[0].course_image%>')">
+                            <b style="line-height: 10%;" class="d-block mb-3 ps-4">View </b>
+                        </a>
+                    </div>
+                    <% if(da[0].course_video!='') { %>
+                        
+                    <div class="col-md-12 mt-2 border-bottom">
+                        <p>Video</p>
+                        <a href="" onclick="open_file('/uploads/<%=da[0].course_video%>')">
+                            <b style="line-height: 10%;" class="d-block mb-3 ps-4">View </b>
+                        </a>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            22
+        </div>
+        <div class="col-md-12 mt-2 border-bottom">
+            <p>Details</p>
+            <b class="d-block mb-3 ps-4"><%- da[0].course_details.replaceAll("\n","<br>") %> </b>
+        </div>
+    </div>
+</div>
+
+
+<%- include("footer.ejs") %>
+
+<script>
+    function open_file(img_path)
+    {
+        window.open(img_path,"","height=auto,width=auto");
+    }
+</script>

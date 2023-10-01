@@ -1,0 +1,27 @@
+<%- include("header.ejs") %>
+<div class="container p-3 col-md-6 col-sm-8 col-lg-12" >
+    <h3>Manage Category's</h3>
+
+<%   data.forEach( (val,i)=> { %>
+
+    <form action="/admin/save_edit_category/<%= val.cat_id%>" method="post">
+        <div class="row">
+            <div class="col-md-6 p-2">
+                Category Name
+                <input class="form-control" type="text" name="category_name" value="<%= val.cat_name %>">
+            </div>
+            <div class="col-md-6 p-2">
+                Category Details
+                <textarea class="form-control" type="text" name="category_details"> <%= val.cat_details %> </textarea>
+            </div>
+            <div class="col-md-6 p-2">
+            </div>
+            <div class="col-md-6 p-2">
+                <button class="btn btn-primary btn-block form-control">Update Category</button>
+            </div>
+        </div>
+    </form>
+<% }) %>
+
+</div>
+<%- include("footer.ejs") %>

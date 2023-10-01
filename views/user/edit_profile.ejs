@@ -1,0 +1,25 @@
+<%- include('header.ejs') %>
+<% for(var i=0; i<data.length; i++){%>
+<form action="/update_user_info" method="post">
+    <div class="container">
+        <div class="row w-100 justify-content-center">
+            <div class="col-md-4 mt-5 mb-5 p-3 border shadow rounded">
+                <h4 class="">Edit User Profile</h4>
+                <b class="mt-5">Name</b>
+                <input type="text" name="user_name" value="<%= data[0].user_name %>" class="form-control mb-3">
+                <b>Mobile</b>
+                <input type="text" name="user_mobile" value="<%= data[0].user_mobile %>" class="form-control mb-3">
+                <b>Email</b>
+                <input type="text" name="user_email" value="<%= data[0].user_email %>" class="form-control mb-3">
+                <b>Password</b>
+                <input type="password" name="user_password" value="<%= data[0].user_password %>" class="form-control mb-3">
+                <div class="text-right">
+                    <button class="btn btn-success pl-4 pr-4">Update Information</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<% } %>
+
+<%- include('footer.ejs') %>

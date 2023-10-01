@@ -1,0 +1,33 @@
+<%- include('header.ejs') %>
+<% for(var i=0; i<data.length; i++){%>
+<form action="/update_user_info" method="post">
+    <div class="container">
+        <div class="row w-100 justify-content-center">
+            <div class="col-md-6 mt-5 mb-5 p-3 border shadow rounded">
+                <h2>User Profile</h2>
+                <div class="m-3" style="font-size: 20px;">
+                    <b class="mt-5">Name</b> : <%= data[0].user_name %> <br>
+                    <b>Mobile</b> : <%= data[0].user_mobile %> <br>
+                    <b>Email</b> : <%= data[0].user_email %>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <a href="/edit_profile" class="btn btn-block btn-success ">Edit</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="/my_courses" class="btn btn-block btn-primary ">My Courses   </a>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <a href="" class="btn-block btn btn-warning">.</a>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <a onclick="return confirm('are you sure  !')" href="/logout" class="btn btn-block btn-danger">LogOut</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<% } %>
+
+<%- include('footer.ejs') %>

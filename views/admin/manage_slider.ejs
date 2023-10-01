@@ -1,0 +1,57 @@
+<%- include("header.ejs") %>
+    <div class="container p-3 col-md-6 col-sm-8 col-lg-12" >
+        <h3>Manage slider</h3>
+
+        <form action="save_slider" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6 p-2">
+                    Select Image
+                    <input class="form-control" type="file" name="slider_img" required="required" >
+                </div>
+                <div class="col-md-6 p-2">
+                    Enter Title
+                    <input class="form-control" type="text" name="title">
+                </div>
+                <div class="col-md-6 p-2">
+                    Enter Button Text
+                    <input class="form-control" type="text" name="btn_name">
+                </div>
+                <div class="col-md-6 p-2">
+                    Enter Button Link
+                    <input class="form-control" type="link" name="btn_link">
+                </div>
+                <div class="col-md-6 p-2">
+                </div>
+                <div class="col-md-6 p-2">
+                    <button class="btn btn-primary btn-block form-control">Save Slider</button>
+                </div>
+            </div>
+        </form>
+
+        <table border="1px solid black" class="table table-sm table-bordered" width="100%">
+            <tr class="table-row">
+                <th>options</th>
+                <th>sr no.</th>
+                <th>Slider Image</th>
+                <th>Slider Title</th>
+                <th>Slider Btn Name</th>
+                <th>Slider Btn Link</th>
+            </tr>
+        <% for(var i=0; i<data.length; i++){ %>
+            <tr>
+                <td style="width: 3%; white-space: nowrap;">
+                    <a href="/admin/edit_slider/<%=data[i].slider_id%>" class="btn btn-primary" > <i class="fa fa-edit"></i> </a>
+                    <a onclick="return confirm('are you sure ?')" href="/admin/delete_slider/<%=data[i].slider_id%>" class="btn btn-danger" > <i class="fa fa-trash"></i> </a>
+                </td>
+                <td><%= i+1 %></td>
+                <td ><img width="150px" src="/uploads/<%= data[i].slider_image %>"></td>
+                <td><%= data[i].slider_title %></td>
+                <td><%= data[i].slider_button %></td>
+                <td><%= data[i].btn_link %></td>
+            </tr>
+        <% } %>
+        </table>
+
+        <!-- <img src="/uploads/1692882109738slider images.jpg" alt=""> -->
+    </div>
+<%- include("footer.ejs") %>

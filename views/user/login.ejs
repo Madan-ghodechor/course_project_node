@@ -1,0 +1,25 @@
+<%- include('header.ejs') %>
+
+<form action="/do_login" method="post" autocomplete="off" style="height: 74vh;">
+    <div class="container">
+        <div class="row w-100 justify-content-center">
+            <div class="col-md-4 mt-5 mb-5 p-3 border shadow rounded">
+                <h4 class="">User Login</h4>
+                <br>
+                <b>Mobile <span class="text-danger">*</span></b>
+                <input type="text" name="user_mobile" class="form-control" required>
+                <br>
+                <b>Password <span class="text-danger">*</span></b>
+                <input type="password" name="user_password" class="form-control" required>
+                <br>
+                <div class="text-right">
+                    <button class="btn btn-primary pl-4 pr-4">Login</button>
+                </div>
+                <h6>New User, <a href="/register">Create Account</a> </h6>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<%- include('footer.ejs') %>

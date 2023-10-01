@@ -1,0 +1,48 @@
+<%- include("header.ejs") %>
+<div class="container p-3 col-md-6 col-sm-8 col-lg-12" >
+    <h3>Manage Category's</h3>
+
+    <form action="save_category" method="post">
+        <div class="row">
+            <div class="col-md-6 p-2">
+                Category Name
+                <input class="form-control" type="text" name="category_name">
+            </div>
+            <div class="col-md-6 p-2">
+                Category Details
+                <textarea class="form-control" type="text" name="category_details"></textarea>
+            </div>
+            <div class="col-md-6 p-2">
+            </div>
+            <div class="col-md-6 p-2">
+                <button class="btn btn-primary btn-block form-control">Save</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-bordered">
+        <tr>
+            <th></th>
+            <th>sr no</th>
+            <th>Category Name</th>
+            <th>Category Details</th>
+        </tr>
+
+    <%   data.forEach( (val,i)=> { %>
+        <tr>
+            <td style="width: 3%; white-space: nowrap;">
+                <a href="/admin/edit_category/<%=val.cat_id%>" class="btn btn-primary btn-sm" > <i class="fa fa-edit"></i> </a>
+                <a onclick="return confirm('are you sure ?')" href="/admin/delete_category/<%=val.cat_id %>" class="btn btn-danger btn-sm" > <i class="fa fa-trash"></i> </a>
+            </td>
+            <td> <%= i+1 %> </td>
+            <td> <%= val.cat_name %> </td>
+            <td>
+                <div style="text-overflow: ellipsis; white-space: nowrap; max-width: 300px; overflow: hidden;" >
+                    <%= val.cat_details %> </td>
+                </div> 
+        </tr>
+    <% }) %>
+
+    </table>
+</div>
+<%- include("footer.ejs") %>

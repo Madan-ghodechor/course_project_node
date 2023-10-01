@@ -1,0 +1,57 @@
+<%- include('header.ejs') %>
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>All Users List</h1>
+            </div>
+            <div class="col-md-12">
+                <form action="/admin/sold_courses" method="POST">
+                    <div class="row alert alert-primary">
+                        <h4>Filter Data by</h4>
+                        <div class="col-md-6">
+                            <b> From </b>
+                            <input type="date" name="start_date" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <b> Too </b>
+                            <input type="date" name="end_date" class="form-control">
+                        </div>
+                        <div class="col-md-12 text-end p-3">
+                            <button class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12 text-end p-3">
+                <a href="/admin/sold_courses">
+                    <button class="btn btn-warning">Reset Filter</button>
+                </a>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>SN  </th>
+                        <th>User Name</th>
+                        <th>Course</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Transition Id</th>
+                    </tr>
+                    <% 
+                    for(var i=0; i<data.length; i++){ %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= data[i].user_name  %></td>
+                            <td><%= data[i].course_name  %></td>
+                            <td><%= data[i].purchase_date  %></td>
+                            <td><%= data[i].amount  %></td>
+                            <td><%= data[i].transaction_id  %></td>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%- include('footer.ejs') %>

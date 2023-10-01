@@ -1,0 +1,27 @@
+<%- include("header.ejs") %>
+    <h1>Wants To Contact</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <% for(var i=0; i<data.length; i++){%>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <b> Name : </b> <%= data[i].Qu_Fname %> <%= data[i].Qu_Lname %> <br>
+                        <b> Mobile : +91 </b> <%= data[i].Qu_mobile %> <br>
+                        <b> Email : </b> <%= data[i].Qu_email %>
+                    </div>
+                    <div class="card-body">
+                        <b> User Query : </b>
+                        <br>
+                        <%= data[i].Qu_query %>
+                    </div>
+                    <button class="btn btn-block btn-danger">Delete</button>
+                </div>
+                
+            </div>
+            <% } %>
+            
+        </div>
+
+    </div>
+<%- include("footer.ejs") %>

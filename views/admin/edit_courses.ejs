@@ -1,0 +1,66 @@
+<%- include("header.ejs") %>
+<div class="container p-3 col-md-6 col-sm-8 col-lg-12" >
+    <h3>Edit Course's</h3>
+
+<%  data.forEach( (val,i)=>{ %>
+
+    <form action="/admin/save_edit_course/<%=val.course_id%>" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-4 mt-4">
+                <label>Course Name<span class="text-danger">*</span></label>
+                <input class="form-control" value="<%=val.course_name%>" required type="text" name="course_name">
+            </div>
+            <div class="col-md-4 mt-4">
+                <label>Course Category<span class="text-danger">*</span></label>
+                <select value="<%=val.course_category%>" name="course_category" required class="form-control">
+                    <option selected value="<%= val.cat_id %>" ><%=val.cat_name%></option>
+                    <%   da.forEach((val,i)=>{  %>
+                    <option value="<%= val.cat_id %>"> <%= val.cat_name %> </option>
+                    <%  })    %>
+                </select>
+            </div>
+            <div class="col-md-4 mt-4">
+                <label>Course Duration</label>
+                <input class="form-control" type="text" name="course_duration" value="<%= val.course_duration %>">
+            </div>
+            <div class="col-md-4 mt-4">
+                <label>Course Price<span class="text-danger">*</span></label>
+                <input class="form-control" type="number" required name="course_price" value="<%= val.course_price %>">
+            </div>
+            <div class="col-md-4 mt-4">
+                <label>Course Image<span class="text-danger"></span></label>
+                <input class="form-control" type="file" name="course_image">
+            </div>
+            <div class="col-md-4 mt-4">
+                <label>Course Sample Video</label> 
+                <input class="form-control" type="file" accept="video/mp4"  name="course_video">
+            </div>
+            <div class="col-md-4 mt-4">
+                <label>Course Mentor</label>
+                <input class="form-control" type="text" name="course_mentor" value="<%= val.course_mentor %>">
+            </div>
+            <div class="col-md-4 mt-4">
+                <label>Course Link</label>
+                <input class="form-control" type="text" name="course_link" value="<%= val.course_link %>">
+            </div>
+            <div class="col-md-4 mt-4">
+                <label>Platform<span class="text-danger">*</span></label>
+                <select name="course_platform" required class="form-control drop-down">
+                    <option value="<%= val.course_platform %>" selected  > <%= val.course_platform %></option>
+                    <option value="online_live"> Online Live </option>
+                    <option value="classroom_live"> ClassRoom Live </option>
+                    <option value="recorded"> Recorded </option>
+                </select>
+            </div>
+            <div class="col-md-12 mt-4">
+                <textarea class="form-control" name="course_details" ><%= val.course_details %></textarea>
+            </div>
+            <div class="col-md-12 mt-4 text-end">
+                <button class="btn btn-primary"> Save Course</button>
+            </div>
+        </div>
+    </form>
+
+<%  })  %>
+
+</div>

@@ -1,0 +1,40 @@
+<%- include("header.ejs") %>
+<div class="container p-3 col-md-6 col-sm-8 col-lg-12" >
+    <h3>List Of Course's</h3>
+
+    <table class="table table-bordered mt-3">
+        <tr>
+            <th>option</th>
+            <th>SN</th>
+            <th>Course Name</th>
+            <th>Course Category</th>
+            <th>Course Duration</th>
+            <th>Course Mentor</th>
+            <th>Course Platform</th>
+            <th>Course Price</th>
+            <!-- <th>Course Image</th> -->
+            <!-- <th>Course video</th> -->
+            <!-- <th>Course Link</th> -->
+        </tr>
+        <% da.forEach( (val,i) =>{ %>
+            <tr>
+                <td style="white-space: nowrap;">
+                    <a href="course_details/<%= val.course_id %>" class="btn-block mt-3 btn btn-warning"> <i class="fa fa-print"></i> Details  </a>
+                    <a href="edit_course/<%= val.course_id %>" class="btn-block mt-3 btn btn-primary"> <i class="fa fa-edit"></i>  </a>
+                    <a href="delete_course/<%= val.course_id %>" onclick="return confirm('are you sure ?')" class="btn-block mt-3 btn btn-danger">  <i class="fa fa-trash"></i> </a>
+                </td>
+                <td> <%= i+1 %> </td>
+                <td> <%= val.course_name %> </td>
+                <td> <%= val.cat_name %> </td>
+                <td> <%= val.course_duration %> </td>
+                <!-- <td> <img style="height: 200px; width: 200px; object-fit: cover;" src="/uploads/<%= val.course_image %>"> </td> -->
+                <!-- <td> <video style="height: 200px; width: 200px; object-fit: cover;" controls src="/uploads/<%= val.course_video %>"></video> </td> -->
+                <td> <%= val.course_mentor %> </td>
+                <td> <%= val.course_platform %> </td>
+                <td> <b> &#8377;<%= val.course_price %>.00 </b></td>
+                <!-- <td> <%= val.course_link %> </td> -->
+            </tr>
+        <% }) %>
+    </table>
+</div>
+<%- include("footer.ejs") %>

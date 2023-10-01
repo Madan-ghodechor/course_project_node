@@ -1,0 +1,26 @@
+<%- include('header.ejs') %>
+<form action="/register_user" method="post" autocomplete="off">
+    <div class="container">
+        <div class="row w-100 justify-content-center">
+            <div class="col-md-4 mt-5 mb-5 p-3 border shadow rounded">
+                <h4 class="">User Registration</h4>
+                <b class="mt-5">Name <span class="text-danger">*</span> </b>
+                <input type="text" name="user_name" class="form-control mb-3" required >
+                <b>Mobile<span class="text-danger">*</span></b>
+                <input type="text" name="user_mobile" class="form-control mb-3" required>
+                <b>Email<span class="text-danger">*</span></b>
+                <input type="text" name="user_email" class="form-control mb-3" required>
+                <b>Password<span class="text-danger">*</span></b>
+                <input type="password" name="user_password" class="form-control mb-3" required>
+                <div class="text-right">
+                    <button class="btn btn-primary pl-4 pr-4">Register</button>
+                </div>
+                <h6>Allready Account, <a href="/Login">Login Now</a> </h6>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<%- include('footer.ejs') %>

@@ -1,0 +1,48 @@
+<%- include("header.ejs") %>
+    <div class="container p-3 col-md-6 col-sm-8 col-lg-12" >
+        <h3>Manage slider</h3>
+        <% data.forEach((val,i) => { %>
+        <form action="/admin/save_edit_slider/<%=val.slider_id%>" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6 p-2">
+                    Select Image
+                    <input class="form-control" type="file" name="slider_img" >
+                </div>
+                <div class="col-md-6 p-2">
+                    Enter Title
+                    <input class="form-control" type="text" value="<%=val.slider_title %>" name="title">
+                </div>
+                <div class="col-md-6 p-2">
+                    Enter Button Text
+                    <input class="form-control" type="text" name="btn_name" value="<%=val.slider_button %>">
+                </div>
+                <div class="col-md-6 p-2">
+                    Enter Button Link
+                    <input class="form-control" type="link" name="btn_link" value="<%=val.btn_link %>">
+                </div>
+                <div class="col-md-6 p-2">
+                </div>
+                <div class="col-md-6 p-2">
+                    <button class="btn btn-primary btn-block form-control">Update Slider</button>
+                </div>
+            </div>
+        </form>
+
+        <table border="1px solid black" class="table table-sm table-bordered" width="100%">
+            <tr class="table-row">
+                <th>Slider Image</th>
+                <th>Slider Title</th>
+                <th>Slider Btn Name</th>
+                <th>Slider Btn Link</th>
+            </tr>
+            <tr>
+                <td ><img width="150px" src="/uploads/<%= data[i].slider_image %>"></td>
+                <td><%= data[i].slider_title %></td>
+                <td><%= data[i].slider_button %></td>
+                <td><%= data[i].btn_link %></td>
+            </tr>
+        </table>
+        <% }) %>
+
+    </div>
+<%- include("footer.ejs") %>    
