@@ -15,4 +15,4 @@ var conn = mysql.createConnection(
 
 var exe = util.promisify(conn.query).bind(conn);
  
-module.exports = exe;
+module.exports = exe.promise();
