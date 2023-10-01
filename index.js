@@ -23,3 +23,8 @@ app.get("/", (req,res)=>{
 });
 
 app.listen(4200);
+
+// DB_DBNAME
+// DB_PASSWORD
+// DB_HOST
+// DB_USERNAME

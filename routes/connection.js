@@ -3,10 +3,13 @@ var util = require('util');
 
 var conn = mysql.createConnection(
     {
-        host:'bj9iowyng8jqd76ejzva-mysql.services.clever-cloud.com', // localhost
-        user:'u50uq0aawxrffglr', // root
-        password:'o3YGb4O69bHU1L2Zbwkh',  // ''
-        database:'bj9iowyng8jqd76ejzva'
+        host: process.env.DB_HOST,
+        user:process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DBNAME,
+        waitForConnections : true,
+        connectionLimit: 10,
+        queueLimit: 0
     }
 );
 
