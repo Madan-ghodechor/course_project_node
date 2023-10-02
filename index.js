@@ -22,7 +22,8 @@ app.get("/", (req,res)=>{
     res.send("hello");
 });
 
-app.listen(4200);
+const PORT = process.env.PORT || 769
+app.listen(PORT);
 
 // DB_DBNAME
 // DB_PASSWORD
